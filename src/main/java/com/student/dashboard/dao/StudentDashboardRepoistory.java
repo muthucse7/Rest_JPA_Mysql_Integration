@@ -3,10 +3,7 @@
  */
 package com.student.dashboard.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.student.dashboard.model.StudentDashboard;
@@ -17,14 +14,5 @@ import com.student.dashboard.model.StudentDashboard;
  */
 
 @Repository
-@Transactional
-public class StudentDashboardRepoistory {
-	
-	@PersistenceContext
-	EntityManager enitityManager;
-	
-	public StudentDashboard retrieveStudentDetails(int id) {
-		return enitityManager.find(StudentDashboard.class, id);
-	}
-
+public interface StudentDashboardRepoistory extends JpaRepository<StudentDashboard, Integer> {
 }
