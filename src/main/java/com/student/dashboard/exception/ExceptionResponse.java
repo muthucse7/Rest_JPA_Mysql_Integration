@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.student.dashboard.model;
+package com.student.dashboard.exception;
 
 import java.util.Date;
 
@@ -9,13 +9,13 @@ import java.util.Date;
  * @author Muthu Selvam
  *
  */
-public class ErrorMessage {
+public class ExceptionResponse {
 
 	private Date dateTime;
 	private String message;
 	private String errorCode;
 	
-	public ErrorMessage(Date dateTime, String message, String errorCode) {
+	public ExceptionResponse(Date dateTime, String message, String errorCode) {
 		super();
 		this.dateTime = dateTime;
 		this.message = message;
