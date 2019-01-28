@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.student.dashboard.model.StudentDashboard;
 import com.student.dashboard.service.StudentDashboardService;
+import com.student.dashboard.util.WebServiceURI;
 
 /**
  * @author Muthu Selvam
@@ -27,27 +28,27 @@ public class StudentDashboardController {
 	@Autowired
 	private StudentDashboardService studentDashboardService;
 	
-	@GetMapping("/student/getDetails")
+	@GetMapping(WebServiceURI.GET_STUDENT_DETAILS)
 	public List<StudentDashboard> getListOfStudentDetails() {
 		return studentDashboardService.getAllStudentDetails();
 	}
 
-	@GetMapping("/student/getDetails/{id}")
+	@GetMapping(WebServiceURI.GET_STUDENT_DETAIL_BY_ID)
 	public StudentDashboard getStudentdetails(@PathVariable int id) {
 		return studentDashboardService.getStudentDetailsById(id);
 	}
 	
-	@PostMapping("/student/register")
+	@PostMapping(WebServiceURI.REGISTER_STUDENT)
 	public StudentDashboard registerStudentDetails(@RequestBody StudentDashboard studentDashboard) {
 		return studentDashboardService.registerStudent(studentDashboard);
 	}
 	
-	@PostMapping("/student/update")
+	@PostMapping(WebServiceURI.UPDATE_STUDENT)
 	public StudentDashboard updateStudentDetails(@RequestBody StudentDashboard studentDashboard) {
 		return studentDashboardService.updateStudentDetails(studentDashboard);
 	}
 	
-	@DeleteMapping("/student/delete/{id}")
+	@DeleteMapping(WebServiceURI.DELETE_STUDENT)
 	public String deleteStudentDetails(@PathVariable int id) {
 		return studentDashboardService.deleteStudentDetails(id);
 	}

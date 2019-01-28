@@ -3,6 +3,7 @@
  */
 package com.student.dashboard.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.student.dashboard.dao.StudentDashboardRepoistory;
+import com.student.dashboard.exception.ExceptionResponse;
 import com.student.dashboard.model.StudentDashboard;
 
 /**
@@ -34,9 +36,11 @@ public class StudentDashboardService {
 	public StudentDashboard getStudentDetailsById(int id) {
 		Optional<StudentDashboard> findByID = studentDashboardRepoistory.findById(id);
 		StudentDashboard studentDashboard = new StudentDashboard();
-		if (findByID.isPresent()) {
-			studentDashboard = findByID.get();
+		LOGGER.info("Exception muthu"+findByID.isPresent());
+		if (findByID == null) {
+			new ExceptionResponse(new Date(), "user Not Found", "Error");
 		}
+		
 		return studentDashboard;
 	}
 
