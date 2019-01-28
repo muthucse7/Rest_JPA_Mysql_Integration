@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 @RestController
-public class ExpectionHandler extends ResponseEntityExceptionHandler {
+public class CustomExpectionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<Object> internalServerException(Exception ex, WebRequest request) throws Exception {
