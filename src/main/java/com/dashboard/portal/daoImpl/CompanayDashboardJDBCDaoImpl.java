@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.student.dashboard.dao;
+package com.dashboard.portal.daoImpl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +13,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.student.dashboard.model.Company;
+import com.dashboard.portal.dao.CompanayDashboardDao;
+import com.dashboard.portal.model.Company;
 
 /**
  * @author Muthu Selvam
@@ -21,18 +22,19 @@ import com.student.dashboard.model.Company;
  */
 
 @Repository
-public class CompanayDashboardJDBCDao {
+public class CompanayDashboardJDBCDaoImpl implements CompanayDashboardDao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
-	/**
-	 * @param branchId
-	 * @param gender
-	 * @return
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.dashboard.portal.dao.CompanayDashboardDao#
+	 * getEmployeeDetailsByGenderAndBranch(int, java.lang.String)
 	 */
+	@Override
 	public List<Company> getEmployeeDetailsByGenderAndBranch(int branchId, String gender) {
-
 		List<Company> employeeList = jdbcTemplate.query(
 				"SELECT * FROM employee WHERE branch_id =" + branchId + " AND sex =" + "'" + gender + "'",
 				new RowMapper<Company>() {
@@ -56,9 +58,12 @@ public class CompanayDashboardJDBCDao {
 		return employeeList;
 	}
 
-	/**
-	 * @return
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.dashboard.portal.dao.CompanayDashboardDao#getAllEmployee()
 	 */
+	@Override
 	public List<Company> getAllEmployee() {
 		List<Company> employeeList = jdbcTemplate.query("SELECT * from employee", new RowMapper<Company>() {
 

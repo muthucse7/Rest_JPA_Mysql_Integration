@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.student.dashboard.controller;
+package com.dashboard.portal.controller;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.student.dashboard.model.Company;
-import com.student.dashboard.service.CompanayDashboardService;
-import com.student.dashboard.util.WebServiceURI;
+import com.dashboard.portal.model.Company;
+import com.dashboard.portal.serviceImpl.CompanayDashboardServiceImpl;
+import com.dashboard.portal.util.WebServiceURI;
 
 /**
  * @author Muthu Selvam
@@ -23,17 +23,17 @@ import com.student.dashboard.util.WebServiceURI;
 public class CompanyDashboardController {
 
 	@Autowired
-	CompanayDashboardService companayDashboardService;
+	CompanayDashboardServiceImpl companayDashboardServiceImpl;
 
 	@GetMapping(WebServiceURI.COMPANY_EMPLOYEE_DETAILS)
 	public List<Company> getEmployeeDetailsByGenderAndBranch(@PathVariable int branchId, @PathVariable String gender) {
-		return companayDashboardService.getEmployeeDetailsByGenderAndBranch(branchId, gender);
+		return companayDashboardServiceImpl.getEmployeeDetailsByGenderAndBranch(branchId, gender);
 	}
 	
 	
 	@GetMapping(WebServiceURI.COMPANY_ALL_EMPLOYEE)
 	public List<Company> getAllEmployee(){
-		return companayDashboardService.getAllEmployee();
+		return companayDashboardServiceImpl.getAllEmployee();
 	}
 
 }

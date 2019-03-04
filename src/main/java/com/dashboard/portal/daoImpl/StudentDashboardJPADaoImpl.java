@@ -1,12 +1,12 @@
 /**
  * 
  */
-package com.student.dashboard.dao;
+package com.dashboard.portal.daoImpl;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.student.dashboard.model.StudentDashboard;
+import com.dashboard.portal.model.StudentDashboard;
 
 /**
  * @author Muthu Selvam
@@ -14,5 +14,5 @@ import com.student.dashboard.model.StudentDashboard;
  */
 
 @Repository
-public interface StudentDashboardJPADao extends JpaRepository<StudentDashboard, Integer> {
+public interface StudentDashboardJPADaoImpl extends JpaRepository<StudentDashboard, Integer> {
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.student.dashboard.exception;
+package com.dashboard.portal.exception;
 
 import java.util.Date;
 

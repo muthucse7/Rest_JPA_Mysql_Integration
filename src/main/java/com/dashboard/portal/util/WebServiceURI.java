@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.student.dashboard.util;
+package com.dashboard.portal.util;
 
 /**
  * @author Muthu Selvam

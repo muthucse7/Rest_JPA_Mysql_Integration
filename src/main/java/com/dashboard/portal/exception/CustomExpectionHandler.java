@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.student.dashboard.exception;
+package com.dashboard.portal.exception;
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.Date;

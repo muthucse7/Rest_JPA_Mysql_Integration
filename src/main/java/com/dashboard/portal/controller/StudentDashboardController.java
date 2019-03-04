@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.student.dashboard.controller;
+package com.dashboard.portal.controller;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.student.dashboard.model.StudentDashboard;
-import com.student.dashboard.service.StudentDashboardService;
-import com.student.dashboard.util.WebServiceURI;
+import com.dashboard.portal.model.StudentDashboard;
+import com.dashboard.portal.serviceImpl.StudentDashboardServiceImpl;
+import com.dashboard.portal.util.WebServiceURI;
 
 /**
  * @author Muthu Selvam
@@ -26,31 +26,31 @@ import com.student.dashboard.util.WebServiceURI;
 public class StudentDashboardController {
 
 	@Autowired
-	private StudentDashboardService studentDashboardService;
+	private StudentDashboardServiceImpl studentDashboardServiceImpl;
 	
 	@GetMapping(WebServiceURI.GET_STUDENT_DETAILS)
 	public List<StudentDashboard> getListOfStudentDetails() {
-		return studentDashboardService.getAllStudentDetails();
+		return studentDashboardServiceImpl.getAllStudentDetails();
 	}
 
 	@GetMapping(WebServiceURI.GET_STUDENT_DETAIL_BY_ID)
 	public StudentDashboard getStudentdetails(@PathVariable int id) {
-		return studentDashboardService.getStudentDetailsById(id);
+		return studentDashboardServiceImpl.getStudentDetailsById(id);
 	}
 	
 	@PostMapping(WebServiceURI.REGISTER_STUDENT)
 	public StudentDashboard registerStudentDetails(@RequestBody StudentDashboard studentDashboard) {
-		return studentDashboardService.registerStudent(studentDashboard);
+		return studentDashboardServiceImpl.registerStudent(studentDashboard);
 	}
 	
 	@PostMapping(WebServiceURI.UPDATE_STUDENT)
 	public StudentDashboard updateStudentDetails(@RequestBody StudentDashboard studentDashboard) {
-		return studentDashboardService.updateStudentDetails(studentDashboard);
+		return studentDashboardServiceImpl.updateStudentDetails(studentDashboard);
 	}
 	
 	@DeleteMapping(WebServiceURI.DELETE_STUDENT)
 	public String deleteStudentDetails(@PathVariable int id) {
-		return studentDashboardService.deleteStudentDetails(id);
+		return studentDashboardServiceImpl.deleteStudentDetails(id);
 	}
 	
 }

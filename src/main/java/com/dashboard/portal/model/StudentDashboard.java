@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.student.dashboard.model;
+package com.dashboard.portal.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
