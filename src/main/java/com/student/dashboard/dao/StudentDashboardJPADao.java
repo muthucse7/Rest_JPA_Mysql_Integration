@@ -14,5 +14,5 @@ import com.student.dashboard.model.StudentDashboard;
  */
 
 @Repository
-public interface StudentDashboardRepoistory extends JpaRepository<StudentDashboard, Integer> {
+public interface StudentDashboardJPADao extends JpaRepository<StudentDashboard, Integer> {
 }
