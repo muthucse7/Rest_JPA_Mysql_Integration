@@ -209,7 +209,7 @@ FROM employee;
 -- Find out how many males and females there are
 SELECT COUNT(sex), sex
 FROM employee
-GROUP BY sex
+GROUP BY sex;
 
 -- Find the total sales of each salesman
 SELECT SUM(total_sales), emp_id
